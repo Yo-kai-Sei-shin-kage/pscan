@@ -1,0 +1,19 @@
+# pscan
+Basic netcat port-range scanner in bash.
+
+# Installation
+Save "pscan" to "/usr/bin" directory. 
+chmod +x pscan
+
+# USAGE
+pscan t 192.168.1.1 500 <-- for TCP
+
+(or...)
+
+pscan u 192.168.1.1 500 <-- for UDP
+
+# Discription
+Pscan is a simple port scanner for TCP and UDP to see what ports
+are open and determining what services may be using these ports.
+Pscan uses  netcat to scan ports. This tool was coded in the hopes
+that it will be useful.
