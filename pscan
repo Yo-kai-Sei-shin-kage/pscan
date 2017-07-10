@@ -31,7 +31,7 @@ tcp_scan() {
 
 for port in $(seq 1 $COUNT); do
 
-    nc -v -z -w1 $HOST $port >> host_services.txt 2>&1 && wait
+    nc -v -z -w1 $HOST $port >> host_services.txt 2>&1 && wait &
     cat host_services.txt | grep -e 'Connection to' | sed -e 's/ succeeded!//g' -e 's/Connection to //g' -e "s/$HOST //g" && wait
     rm host_services.txt
 
@@ -42,7 +42,7 @@ udp_scan() {
 
 for port in $(seq 1 $COUNT); do
 
-    nc -v -z -u -w1 $HOST $port >> host_services.txt 2>&1 && wait
+    nc -v -z -u -w1 $HOST $port >> host_services.txt 2>&1 && wait &
     cat host_services.txt | grep -e 'Connection to' | sed -e 's/ succeeded!//g' -e 's/Connection to //g' -e "s/$HOST //g" && wait
     rm host_services.txt
 
